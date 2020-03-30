@@ -1,47 +1,55 @@
 <?php
 
-$perso1 = [
-   "nom" => "Rose",
-    "force"= 12,
-    "level1" = 1,
-    "health1" = 100,
+//$perso1 = [
+   //"nom" => "Rose",
+    //"force"= 12,
+    //"level1" = 1,
+    //"health1" = 100,
 
-];
+//];
 
-$perso1 = [
-    "nom" => "Rose",
-     "force"= 12,
-     "niveau" = 1,
-     "health1" = 100,
- 
- ];
 
- $perso2 = [
-    "nom" => "Golbu",
-     "force"= 15,
-     "level1" = 1,
-     "health1" = 100,
- 
- ];
+//function caracteristique($perso){
+    //echo $perso["nom"]. " a une force de" .$perso["force"]. " et au niveau ".$perso{"level"};
+//}
 
- $perso3 = [
-    "nom" => "Mary",
-     "force"= 13,
-     "level1" = 1,
-     "health1" = 100,
- 
- ];
+//caracteristique($perso);
 
- $perso4 = [
-    "nom" => "Low",
-     "force"= 10,
-     "level1" = 1,
-     "health1" = 100,
- 
- ];
+// __________________//
 
-function caracteristique($perso){
-    echo $perso["nom"]. " a une force de" .$perso["force"]. " et au niveau ".$perso{"level"};
+class Personnage {
+    public $nom;
+    public $force;
+    public $niveau;
+    public $santé;
+    public $mort;
+    $mort = true;
+
+    if($mort == true){
+        echo "il est mort";
+    }else{
+        echo "il est vivant";
+    }
+
+
+    public function caracteristique(){
+        echo $this => nom ." a une force de" . $this =>force . "est de niveau1" . $this => niveau1  "est en bonne ".this => santé "il est" . this=>mort;
+
+    }
 }
 
-caracteristique($perso);
+$perso1 = new personnage();
+$perso2 = new personnage();
+$perso3 = new personnage();
+$perso4 = new personnage();
+
+$perso1 => nom = "Rose";
+$perso1 => force = 12;
+
+$perso2 => nom = "Golbu";
+$perso2 => force = 15;
+
+$perso3 => nom = "Arthis";
+$perso3 => force = 12;
+
+$perso2 =>caracteristique();
