@@ -65,16 +65,15 @@ class Personnage {
     private $health;
     private $death;
 
-    function __construct(string $nom, int $force, $niveau = 1, $health, $death ){
+    function __construct(string $nom, int $force, $niveau = 1){
         $this->nom = $nom;
         $this->force = $force;
         $this->niveau = $niveau;
-        $this->health = $health;
-        $this->death = $death;
+
     }
 
     function caracteristique()  {
-        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau;
+        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."";
     }
 
     function getNom() : string {
@@ -91,22 +90,6 @@ class Personnage {
 
     function setniveau(int $lvl){
         $this->niveau = $lvl;
-    }
-
-    function sethealth() : string $health {
-        $this->health = $health;
-    }
-
-    function gethealth(string $health){
-        return $this->health = $health;
-    }
-
-    function setdeath() : $death{
-        $this->death = $death;
-    }
-
-    function getdeath(string $death){
-        return $this->death = $death;
     }
 
 }
