@@ -23,11 +23,12 @@ class Personnage {
     public $niveau;
     public $santé;
     public $mort;
-    $mort = true;
 
-    if($mort == true){
+
+    function 
+    if($mort < 0,){
         echo "il est mort";
-    }else{
+    }elseif($mort >= 0{
         echo "il est vivant";
     }
 
