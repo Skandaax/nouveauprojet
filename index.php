@@ -17,7 +17,7 @@
 
 // __________________//
 
-class Personnage {
+/*class Personnage {
     public $nom;
     public $force;
     public $niveau;
@@ -48,22 +48,21 @@ $perso2 ->health = 10;
 $perso2 -> death = false;
 
 $perso3 = new personnage();
-$perso4 = new personnage();
 $perso3 ->nom = "Arthis";
 $perso3 ->force = 12;
 $perso3 ->niveau = 1;
 $perso3 ->health = 1;
 $perso3 ->death = true;
 
-$perso3 ->caracteristique();
+$perso3 ->caracteristique();*/
+
 
 class Personnage {
 
     Private $nom;
     Private $force;
     private $niveau;
-    private $health;
-    private $death;
+
 
     function __construct(string $nom, int $force, $niveau = 1){
         $this->nom = $nom;
@@ -73,7 +72,7 @@ class Personnage {
     }
 
     function caracteristique()  {
-        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."";
+        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau;
     }
 
     function getNom() : string {
@@ -100,3 +99,22 @@ $pers3 = new personnage("Arthis", 13, 2);
 
 $perso1->setNom("Mary");
 $perso1->setniveau(2);
+
+echo $perso1->getNom(); 
+
+/* exercice 4 */
+
+function attaquer(Personnage $perso)
+{   
+    $perso->sethealth($perso->gethealth() - $this->force);
+    $perso->setdeath();
+}
+
+echo "Avant attaque : " ;
+$perso2->caracteristique();
+$perso1->attaquer($perso2);
+echo "Aprés attaque : " ;
+$perso2->caracteristique();
+
+
+
