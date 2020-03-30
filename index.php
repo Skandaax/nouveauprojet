@@ -21,33 +21,39 @@ class Personnage {
     public $nom;
     public $force;
     public $niveau;
-    public $sante;
+    public $health;
     public $mort;
 
 
     public function caracteristique(){
-        echo $this -> nom  ." a une force de". $this ->force ."est de niveau1". $this -> niveau1 ."est en bonne". $this -> santé ."il est". $this->mort ."". 
-
-    function  mort(){
-    if($this = $mort < 0){
-        $this "il est mort";
-    }elseif($this = $mort > 0){
-        $this "il est vivant";
-    }}
+        $etat = ($this->death)? "mort" : "vivant";
+        echo $this ->nom  ." a une force de". $this ->force ."est de niveau1". $this ->niveau ." son état de santé est de". $this ->health."points/100, notre personnage est donc".$etat;
+    }
 }
 
 $perso1 = new personnage();
+$perso1 ->nom = "Rose";
+$perso1 ->force = 12;
+$perso1 ->niveau = 1;
+$perso1 ->health = 100;
+$perso1 ->death = false;
+
+
+
 $perso2 = new personnage();
+$perso2 ->nom = "Golbu";
+$perso2 ->force = 15;
+$perso2 ->niveau = 1;
+$perso2 ->health = 10;
+$perso2 -> death = false;
+
 $perso3 = new personnage();
 $perso4 = new personnage();
+$perso3 ->nom = "Arthis";
+$perso3 ->force = 12;
+$perso3 ->niveau = 1;
+$perso3 ->health = 1;
+$perso3 -> death = true;
 
-$perso1 => nom = "Rose";
-$perso1 => force = 12;
+$perso3 ->caracteristique();
 
-$perso2 => nom = "Golbu";
-$perso2 => force = 15;
-
-$perso3 => nom = "Arthis";
-$perso3 => force = 12;
-
-$perso2 =>caracteristique();
