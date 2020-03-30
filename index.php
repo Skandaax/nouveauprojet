@@ -53,7 +53,67 @@ $perso3 ->nom = "Arthis";
 $perso3 ->force = 12;
 $perso3 ->niveau = 1;
 $perso3 ->health = 1;
-$perso3 -> death = true;
+$perso3 ->death = true;
 
 $perso3 ->caracteristique();
 
+class Personnage {
+
+    Private $nom;
+    Private $force;
+    private $niveau;
+    private $health;
+    private $death;
+
+    function __construct(string $nom, int $force, $niveau = 1, $health, $death ){
+        $this->nom = $nom;
+        $this->force = $force;
+        $this->niveau = $niveau;
+        $this->health = $health;
+        $this->death = $death;
+    }
+
+    function caracteristique()  {
+        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau;
+    }
+
+    function getNom() : string {
+        return $this->nom;
+    }
+
+    function setNom(string $nom) {
+        $this->nom = $nom;
+    }
+
+    function getniveau() : int {
+        return $this->level;
+    }
+
+    function setniveau(int $lvl){
+        $this->niveau = $lvl;
+    }
+
+    function sethealth() : string $health {
+        $this->health = $health;
+    }
+
+    function gethealth(string $health){
+        return $this->health = $health;
+    }
+
+    function setdeath() : $death{
+        $this->death = $death;
+    }
+
+    function getdeath(string $death){
+        return $this->death = $death;
+    }
+
+}
+
+$perso1 = new personnage("Rose", 12);
+$perso2 = new personnage("Golbu", 15, 2);
+$pers3 = new personnage("Arthis", 13, 2);
+
+$perso1->setNom("Mary");
+$perso1->setniveau(2);
