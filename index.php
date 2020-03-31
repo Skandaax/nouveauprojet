@@ -56,28 +56,35 @@ $perso3 ->death = true;
 
 $perso3 ->caracteristique();*/
 
+
+//$perso1->setNom("Mary");
+//$perso1->setNiveau(2);
+
+//echo $perso1->getNom();
+
 /*****Exercice 3************/
 
 class Personnage {
 
-    Private $nom;
-    Private $force;
-    private $niveau;
-    private $health;
-    Private $death;
+    protected $nom;
+    protected $force;
+    protected $niveau;
+    protected $health;
+    protected $death;
 
-    function __construct(string $nom, int $force, $niveau = 1, int $health, int $death){
-        $this->nom = $nom;
-        $this->force = $force;
-        $this->niveau = $niveau;
-        $this->health = $health;
-        $this->death = $death;
+    function __construct(string $nom, int $force, $niveau = 1, int $health = 100){
+        $this->nom($nom);
+        $this->force($force);
+        $this->niveau($niveau);
+        $this->health($health);
+        $this->death();
     }
 
     function caracteristiques()  {
         echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."est vivant".$this->$health."est mort".$this->$death;
     }
 
+    /********Nom********/
     function getNom() : string {
         return $this->nom;
     }
@@ -86,14 +93,17 @@ class Personnage {
         $this->nom = $nom;
     }
 
+    /********Niveau********/
     function getNiveau() : int {
         return $this->level;
     }
 
+    
     function setNiveau(int $lvl){
         $this->niveau = $lvl;
     }
 
+    /********Vie********/
     function getHealth() {
         return $this->health;
     }
@@ -101,7 +111,9 @@ class Personnage {
     function setHealth($health) {
         $this->health = $health;
 
-    function setDeath() {
+    /********Vie ou mort********/
+    function setDeath() 
+    {
         if($this->health < 1){
             $this->death = true;
            } else {
@@ -118,54 +130,62 @@ class Personnage {
 
     /********Level up********/
     function levelup(Personnage $perso){
-        $this->levelup + 1;
+        $this->levelup ++;
     }
 
 }
+/*******New personnages*****/
+Class Archer extends Personnage {
+    
+    function attaquer(Personnage $perso) {
+        $this->tirer();
+        parent::attaquer($perso);
+    }
 
-$perso1->setNom("Mary");
-$perso1->setNiveau(2);
+    function tirer()
+    {
+        echo $this->nom." de type ".Archer: :class."tire une flèche";
+    }
+    
+}
 
-echo $perso1->getNom();
+Class Guerrier extends Personnage {
+    
+    function attaquer(Personnage $perso) {
+        $this->frapper();
+        parent::attaquer($perso);
+    }
 
+    function frapper()
+    {
+        echo $this->nom." de type ".Guerrier: :class." Frappe avec une hache";
+    }
+}
 
-/* exercice 4 */
+Class Magicien extends Personnage {
+    echo $this->nom." de type ".Magicien: :class." Lance un sort";
+    function attaquer(Personnage $perso) {
+        $this->tirer();
+        parent::attaquer($perso);
+    }
 
-$perso1 = new Personnage("Rose", 12);
-$perso2 = new Personnage("Golbu", 15, 2);
-$perso3 = new Personnage("Arthis", 13, 2);
+    function lancerunsort()
+    {
+        echo $this->nom." de type ".Magicien: :class." Lance un sort";
+    }
+}
+
+/************************************/
+
+$perso1 = new Archer("Rose", 12);
+$perso2 = new guerrier("Golbu", 15, 2);
+$perso3 = new Maicien("Arthis", 13, 2);
 
 echo "Avant attaque : " ;
 $perso2->caracteristiques();
 $perso1->attaquer($perso2);
 echo "Aprés attaque : " ;
 $perso2->caracteristiques();
-
-/*******Exercice 5*******/
-
-class archer{
-    $perso1 = new personnage
-    $perso1 ->nom = "Gérard";
-    $perso1 ->niveau = 20;
-    $perso1 ->force = 10;
-    $perso1 ->arc = 5;
-}
-
-class guerrier{
-    $perso2 = new personnage
-    $perso2 ->nom = "iris";
-    $perso2 ->niveau = 20;
-    $perso2 ->force = 10;
-    $perso2 ->frapper = 5;
-}
-
-class magicien{
-    $perso3 = new personnage
-    $perso3 ->nom = "rose";
-    $perso3 ->niveau = 20;
-    $perso3 ->force = 10;
-    $perso3 ->magie = 5;
-}
 
 
 
