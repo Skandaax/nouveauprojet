@@ -84,7 +84,7 @@ class Personnage
     function caracteristiques()  
     {
         $etat = ($this->death)? "mort" : "vivant";
-        echo $this->nom ." a une force de ". $this->force." et au niveau ".$this->niveau." est vivant ".$this->health." est mort ".$this->death."ponts/100, notre personnage est donc ".$this->etat."<br>";
+        echo $this->nom ." a une force de ". $this->force." et au niveau ".$this->niveau." est vivant ".$this->health." est mort ".$this->death."ponts/100, notre personnage est donc ".$etat."<br>";
     }
 
     /********Nom********/
@@ -151,7 +151,7 @@ class Personnage
     /********Level up********/
     function levelup()
     {
-        $this->levelup ++;
+        $this->niveau++;
     }
 }
 /*******New personnages*****/
@@ -212,6 +212,12 @@ $perso2->caracteristiques();
 $perso1->attaquer($perso2);
 echo "Aprés attaque : " ;
 $perso2->caracteristiques();
+
+echo "Avant : ";
+$perso1->caracteristiques();
+$perso1->levelup();
+echo "Aprés : ";
+$perso1->caracteristiques();
 
 
 
