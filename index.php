@@ -118,9 +118,9 @@ class Personnage {
 }
 
 /*$perso1->setNom("Mary");
-$perso1->setniveau(2);
+$perso1->setNiveau(2);*/
 
-echo $perso1->getNom(); */
+/*echo $perso1->getNom(); */
 
 
 /* exercice 4 */
