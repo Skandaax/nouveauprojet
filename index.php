@@ -75,7 +75,7 @@ class Personnage {
     }
 
     function caracteristiques()  {
-        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau;
+        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."".$this->$health."".$this->$death;
     }
 
     function getNom() : string {
@@ -109,18 +109,24 @@ class Personnage {
            } 
     }
 
+    /********Attaque********/
     function attaquer(Personnage $perso)
 {   
     $perso->setHealth($perso->getHealth() - $this->force);
     $perso->setDeath();
 }
 
+    /********Level up********/
+    function levelup(){
+        $this->levelup ++;
+    }
+
 }
 
-/*$perso1->setNom("Mary");
-$perso1->setNiveau(2);*/
+//$perso1->setNom("Mary");
+//$perso1->setNiveau(2);
 
-/*echo $perso1->getNom(); */
+//echo $perso1->getNom(); 
 
 
 /* exercice 4 */
@@ -135,4 +141,8 @@ $perso1->attaquer($perso2);
 echo "Aprés attaque : " ;
 $perso2->caracteristiques();
 
-/*exercice 5 */
+
+
+
+
+
