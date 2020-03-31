@@ -140,6 +140,8 @@ $perso1->attaquer($perso2);
 echo "Aprés attaque : " ;
 $perso2->caracteristiques();
 
+Class
+
 
 
 
