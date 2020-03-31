@@ -144,7 +144,7 @@ Class Archer extends Personnage {
 
     function tirer()
     {
-        echo $this->nom." de type ".Archer: :class."tire une flèche";
+        echo $this->nom." de type " .Archer:: class."tire une flèche";
     }
     
 }
@@ -158,12 +158,12 @@ Class Guerrier extends Personnage {
 
     function frapper()
     {
-        echo $this->nom." de type ".Guerrier: :class." Frappe avec une hache";
+        echo $this->nom." de type ".Guerrier:: class." Frappe avec une hache";
     }
 }
 
 Class Magicien extends Personnage {
-    echo $this->nom." de type ".Magicien: :class." Lance un sort";
+    
     function attaquer(Personnage $perso) {
         $this->tirer();
         parent::attaquer($perso);
@@ -171,7 +171,7 @@ Class Magicien extends Personnage {
 
     function lancerunsort()
     {
-        echo $this->nom." de type ".Magicien: :class." Lance un sort";
+        echo $this->nom." de type ".Magicien:: class." Lance un sort";
     }
 }
 
