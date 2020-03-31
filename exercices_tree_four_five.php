@@ -1,4 +1,6 @@
 <?php
+
+<?php
 class Personnage 
 {
     protected $nom;
@@ -153,9 +155,3 @@ $perso1->caracteristiques();
 $perso1->levelup();
 echo "Aprés : ";
 $perso1->caracteristiques();
-
-
-
-
-
-
