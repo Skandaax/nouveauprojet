@@ -66,7 +66,7 @@ class Personnage {
     private $health;
     Private $death;
 
-    function __construct(string $nom, int $force, $niveau = 1, $health, $death){
+    function __construct(string $nom, int $force, $niveau = 1, int $health, int $death){
         $this->nom = $nom;
         $this->force = $force;
         $this->niveau = $niveau;
@@ -75,7 +75,7 @@ class Personnage {
     }
 
     function caracteristiques()  {
-        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."".$this->$health."".$this->$death;
+        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."est vivant".$this->$health."est mort".$this->$death;
     }
 
     function getNom() : string {
@@ -94,11 +94,11 @@ class Personnage {
         $this->niveau = $lvl;
     }
 
-    function getHealth() : string {
+    function getHealth() {
         return $this->health;
     }
 
-    function setHealth(string $health) {
+    function setHealth($health) {
         $this->health = $health;
 
     function setDeath() {
@@ -117,16 +117,16 @@ class Personnage {
 }
 
     /********Level up********/
-    function levelup(){
-        $this->levelup ++;
+    function levelup(Personnage $perso){
+        $this->levelup + 1;
     }
 
 }
 
-/*$perso1->setNom("Mary");
+$perso1->setNom("Mary");
 $perso1->setNiveau(2);
 
-echo $perso1->getNom(); */
+echo $perso1->getNom();
 
 
 /* exercice 4 */
@@ -148,7 +148,7 @@ class archer{
     $perso1 ->nom = "Gérard";
     $perso1 ->niveau = 20;
     $perso1 ->force = 10;
-    $perso1 ->fleches = 5;
+    $perso1 ->arc = 5;
 }
 
 class guerrier{
@@ -156,7 +156,7 @@ class guerrier{
     $perso2 ->nom = "iris";
     $perso2 ->niveau = 20;
     $perso2 ->force = 10;
-    $perso2 ->fleches = 5;
+    $perso2 ->frapper = 5;
 }
 
 class magicien{
@@ -164,7 +164,7 @@ class magicien{
     $perso3 ->nom = "rose";
     $perso3 ->niveau = 20;
     $perso3 ->force = 10;
-    $perso3 ->fleches = 5;
+    $perso3 ->magie = 5;
 }
 
 
