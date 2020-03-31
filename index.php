@@ -64,14 +64,17 @@ class Personnage {
     Private $force;
     private $niveau;
     private $health;
+    Private $death;
 
-    function __construct(string $nom, int $force, $niveau = 1 ){
+    function __construct(string $nom, int $force, $niveau = 1, $health, $death){
         $this->nom = $nom;
         $this->force = $force;
         $this->niveau = $niveau;
+        $this->health = $health;
+        $this->death = $death;
     }
 
-    function caracteristique()  {
+    function caracteristiques()  {
         echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau;
     }
 
@@ -83,13 +86,20 @@ class Personnage {
         $this->nom = $nom;
     }
 
-    function getniveau() : int {
+    function getNiveau() : int {
         return $this->level;
     }
 
-    function setniveau(int $lvl){
+    function setNiveau(int $lvl){
         $this->niveau = $lvl;
     }
+
+    function getHealth() : string {
+        return $this->health;
+    }
+
+    function setHealth(string $health) {
+        $this->health = $health;
 
     function setDeath() {
         if($this->health < 1){
@@ -99,34 +109,30 @@ class Personnage {
            } 
     }
 
+    function attaquer(Personnage $perso)
+{   
+    $perso->setHealth($perso->getHealth() - $this->force);
+    $perso->setDeath();
 }
 
-$perso1 = new personnage("Rose", 12);
-$perso2 = new personnage("Golbu", 15, 2);
-$pers3 = new personnage("Arthis", 13, 2);
+}
 
-$perso1->setNom("Mary");
+/*$perso1->setNom("Mary");
 $perso1->setniveau(2);
 
-echo $perso1->getNom(); 
-
+echo $perso1->getNom(); */
 
 
 /* exercice 4 */
 
-function attaquer(Personnage $perso)
-{   
-    $perso->sethealth($perso->gethealth() - $this->force);
-    $perso->setdeath();
-}
+$perso1 = new personnage("Rose", 12);
+$perso2 = new personnage("Golbu", 15, 2);
+$perso3 = new personnage("Arthis", 13, 2);
 
 echo "Avant attaque : " ;
-$perso2->caracteristique();
+$perso2->caracteristiques();
 $perso1->attaquer($perso2);
 echo "Aprés attaque : " ;
-$perso2->caracteristique();
+$perso2->caracteristiques();
 
-
-
-
-
+/*exercice 5 */
