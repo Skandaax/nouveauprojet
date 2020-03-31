@@ -123,14 +123,13 @@ class Personnage {
 
 }
 
-//$perso1->setNom("Mary");
-//$perso1->setNiveau(2);
+$perso1->setNom("Mary");
+$perso1->setNiveau(2);
 
-//echo $perso1->getNom(); 
+echo $perso1->getNom(); 
 
 
 /* exercice 4 */
-
 $perso1 = new personnage("Rose", 12);
 $perso2 = new personnage("Golbu", 15, 2);
 $perso3 = new personnage("Arthis", 13, 2);
