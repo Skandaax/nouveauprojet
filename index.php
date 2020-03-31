@@ -147,8 +147,25 @@ class archer{
     $perso1 ->nom = "Gérard";
     $perso1 ->niveau = 20;
     $perso1 ->force = 10;
-    
+    $perso1 ->fleches = 5;
 }
+
+class guerrier{
+    $perso2 = new personnage
+    $perso2 ->nom = "iris";
+    $perso2 ->niveau = 20;
+    $perso2 ->force = 10;
+    $perso2 ->fleches = 5;
+}
+
+class magicien{
+    $perso3 = new personnage
+    $perso3 ->nom = "rose";
+    $perso3 ->niveau = 20;
+    $perso3 ->force = 10;
+    $perso3 ->fleches = 5;
+}
+
 
 
 
