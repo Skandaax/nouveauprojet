@@ -130,6 +130,7 @@ echo $perso1->getNom(); */
 
 
 /* exercice 4 */
+
 $perso1 = new Personnage("Rose", 12);
 $perso2 = new Personnage("Golbu", 15, 2);
 $perso3 = new Personnage("Arthis", 13, 2);
@@ -165,6 +166,7 @@ class magicien{
     $perso3 ->force = 10;
     $perso3 ->fleches = 5;
 }
+
 
 
 
