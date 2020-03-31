@@ -84,7 +84,7 @@ class Personnage
     function caracteristiques()  
     {
         $etat = ($this->death)? "mort" : "vivant";
-        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."est vivant".$this->health."est mort".$this->death.", son etat est ".$this->etat;
+        echo $this->nom ." a une force de ". $this->force." et au niveau ".$this->niveau." est vivant ".$this->health." est mort ".$this->death."ponts/100, notre personnage est donc ".$this->etat."<br>";
     }
 
     /********Nom********/
