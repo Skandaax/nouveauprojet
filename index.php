@@ -74,16 +74,17 @@ class Personnage
 
     function __construct(string $nom, int $force, $niveau = 1, int $health = 100)
     {
-        $this->nom($nom);
-        $this->force($force);
-        $this->niveau($niveau);
-        $this->health($health);
-        $this->death();
+        $this->setnom($nom);
+        $this->setforce($force);
+        $this->setniveau($niveau);
+        $this->sethealth($health);
+        $this->setdeath();
     }
 
     function caracteristiques()  
     {
-        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."est vivant".$this->$health."est mort".$this->$death;
+        $etat = ($this->death)? "mort" : "vivant";
+        echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."est vivant".$this->health."est mort".$this->death.", son etat est ".$this->etat;
     }
 
     /********Nom********/
@@ -95,6 +96,17 @@ class Personnage
     function setNom(string $nom) 
     {
         $this->nom = $nom;
+    }
+
+    /********Force********/
+    function getForce() : string 
+    {
+        return $this->force;
+    }
+    
+    function setForce($force) 
+    {
+        $this->force = $force;
     }
 
     /********Niveau********/
@@ -193,7 +205,7 @@ Class Magicien extends Personnage
 
 $perso1 = new Archer("Rose", 12);
 $perso2 = new guerrier("Golbu", 15, 2);
-$perso3 = new Maicien("Arthis", 13, 2);
+$perso3 = new Magicien("Arthis", 13, 2);
 
 echo "Avant attaque : " ;
 $perso2->caracteristiques();
