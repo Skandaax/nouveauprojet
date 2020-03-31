@@ -64,15 +64,16 @@ $perso3 ->caracteristique();*/
 
 /*****Exercice 3************/
 
-class Personnage {
-
+class Personnage 
+{
     protected $nom;
     protected $force;
     protected $niveau;
     protected $health;
     protected $death;
 
-    function __construct(string $nom, int $force, $niveau = 1, int $health = 100){
+    function __construct(string $nom, int $force, $niveau = 1, int $health = 100)
+    {
         $this->nom($nom);
         $this->force($force);
         $this->niveau($niveau);
@@ -80,37 +81,44 @@ class Personnage {
         $this->death();
     }
 
-    function caracteristiques()  {
+    function caracteristiques()  
+    {
         echo $this->nom ." a une force de ". $this->force."et au niveau".$this->niveau."est vivant".$this->$health."est mort".$this->$death;
     }
 
     /********Nom********/
-    function getNom() : string {
+    function getNom() : string 
+    {
         return $this->nom;
     }
 
-    function setNom(string $nom) {
+    function setNom(string $nom) 
+    {
         $this->nom = $nom;
     }
 
     /********Niveau********/
-    function getNiveau() : int {
+    function getNiveau() : int 
+    {
         return $this->level;
     }
 
     
-    function setNiveau(int $lvl){
+    function setNiveau(int $lvl)
+    {
         $this->niveau = $lvl;
     }
 
     /********Vie********/
-    function getHealth() {
+    function getHealth() 
+    {
         return $this->health;
     }
 
-    function setHealth($health) {
+    function setHealth($health) 
+    {
         $this->health = $health;
-
+    }
     /********Vie ou mort********/
     function setDeath() 
     {
@@ -123,21 +131,23 @@ class Personnage {
 
     /********Attaque********/
     function attaquer(Personnage $perso)
-{   
+    {   
     $perso->setHealth($perso->getHealth() - $this->force);
     $perso->setDeath();
-}
-
-    /********Level up********/
-    function levelup(Personnage $perso){
-        $this->levelup ++;
     }
 
+    /********Level up********/
+    function levelup()
+    {
+        $this->levelup ++;
+    }
 }
 /*******New personnages*****/
-Class Archer extends Personnage {
+Class Archer extends Personnage 
+{
     
-    function attaquer(Personnage $perso) {
+    function attaquer(Personnage $perso) 
+    {
         $this->tirer();
         parent::attaquer($perso);
     }
@@ -149,9 +159,11 @@ Class Archer extends Personnage {
     
 }
 
-Class Guerrier extends Personnage {
+Class Guerrier extends Personnage 
+{
     
-    function attaquer(Personnage $perso) {
+    function attaquer(Personnage $perso) 
+    {
         $this->frapper();
         parent::attaquer($perso);
     }
@@ -162,9 +174,11 @@ Class Guerrier extends Personnage {
     }
 }
 
-Class Magicien extends Personnage {
+Class Magicien extends Personnage 
+{
     
-    function attaquer(Personnage $perso) {
+    function attaquer(Personnage $perso) 
+    {
         $this->tirer();
         parent::attaquer($perso);
     }
