@@ -123,16 +123,16 @@ class Personnage {
 
 }
 
-$perso1->setNom("Mary");
+/*$perso1->setNom("Mary");
 $perso1->setNiveau(2);
 
-echo $perso1->getNom(); 
+echo $perso1->getNom(); */
 
 
 /* exercice 4 */
-$perso1 = new personnage("Rose", 12);
-$perso2 = new personnage("Golbu", 15, 2);
-$perso3 = new personnage("Arthis", 13, 2);
+$perso1 = new Personnage("Rose", 12);
+$perso2 = new Personnage("Golbu", 15, 2);
+$perso3 = new Personnage("Arthis", 13, 2);
 
 echo "Avant attaque : " ;
 $perso2->caracteristiques();
@@ -142,7 +142,13 @@ $perso2->caracteristiques();
 
 /*******Exercice 5*******/
 
-
+class archer{
+    $perso1 = new personnage
+    $perso1 ->nom = "Gérard";
+    $perso1 ->niveau = 20;
+    $perso1 ->force = 10;
+    
+}
 
 
 
