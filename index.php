@@ -86,6 +86,14 @@ class Archer
     $perso->setDeath();
     }
 
+    /********Tirer*********/
+    function tirer()
+    {
+        echo " Le personnage tire une flèche ";
+    }
+        
+    
+
     /********Level up********/
     function levelup()
     {
@@ -93,10 +101,7 @@ class Archer
     }
 }
 
-function tirer()
-{
-    echo " Le personnage tire une flèche";
-}
+
 
 /************Guerrier************/
 class Guerrier 
@@ -178,9 +183,16 @@ class Guerrier
 
     /********Attaque********/
     function attaquer($perso)
-    {   
-    $perso->setHealth($perso->getHealth() - $this->force);
-    $perso->setDeath();
+    {
+        $this->frapper();
+        $perso->setHealth($perso->getHealth() - $this->force);
+        $perso->setDeath();
+    }
+
+    /********Frapper*********/
+    function frapper()
+    {
+        echo " Le personnage frappe";
     }
 
     /********Level up********/
@@ -272,9 +284,16 @@ class Magicien
 
     /********Attaque********/
     function attaquer($perso)
-    {   
-    $perso->setHealth($perso->getHealth() - $this->force);
-    $perso->setDeath();
+    {
+        $this->lanceunsort();
+        $perso->setHealth($perso->getHealth() - $this->force);
+        $perso->setDeath();
+    }
+
+    /********Tirer*********/
+    function tirer()
+    {
+        echo " Le personnage Lance un sort";
     }
 
     /********Level up********/
