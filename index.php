@@ -99,7 +99,22 @@ class Archer
     {
         $this->niveau++;
     }
+
+    /********Détgats********/
+    function degats($perso)
+    {
+        if ($perso instanceof Archer)
+        {
+            $perso->sethelth($perso->gethealth() - 30);
+        }else 
+        {
+            $perso->sethealth($perso->gethealth() - 100);
+        }
+    }
 }
+
+
+
 
 
 
@@ -200,6 +215,18 @@ class Guerrier
     {
         $this->niveau++;
     }
+
+    /********Détgats********/
+    function degats($perso)
+    {
+        if ($perso instanceof Guerrier)
+        {
+            $perso->sethelth($perso->gethealth() - 30);
+            }else 
+            {
+                $perso->sethealth($perso->gethealth() - 100);
+            }
+    }
 }
 
 
@@ -212,6 +239,7 @@ class Magicien
     protected $niveau;
     protected $health;
     protected $death;
+    protected $magie; //Puissance du magicien /100
 
     function __construct(string $nom, int $force, $niveau = 1, int $health = 100)
     {
@@ -291,7 +319,7 @@ class Magicien
     }
 
     /********Tirer*********/
-    function tirer()
+    function lancerunsort()
     {
         echo " Le personnage Lance un sort";
     }
@@ -300,6 +328,42 @@ class Magicien
     function levelup()
     {
         $this->niveau++;
+    }
+
+    /********Détgats********/
+    function degats($perso)
+    {
+        if ($perso instanceof Magicien)
+        {
+            $perso->sethelth($perso->gethealth() - 30);
+        }else 
+        {
+            $perso->sethealth($perso->gethealth() - 100);
+        }
+    }
+
+
+}
+
+/***********Extension du magicien********/
+class Personnage extends Magicien
+{
+
+    /********La force du magicien********/
+    function magieblanche($perso)
+    {
+        $perso->recevoirDegats($this->magie);
+    }
+
+    /************Gagner des HP***********/
+    public function gagnerExperience()
+    {
+        parent::gagnerExperience();
+
+        if ($this->magie < 100)
+        {
+            $this->magie += 10;
+        }
     }
 }
 
@@ -320,7 +384,6 @@ $perso1->caracteristiques();
 $perso1->levelup();
 echo "Aprés : ";
 $perso1->caracteristiques();
-
 
 
 
