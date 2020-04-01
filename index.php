@@ -8,6 +8,7 @@ class Archer
     protected $niveau;
     protected $health;
     protected $death;
+    protected $fleches;
 
     function __construct(string $nom, int $force, $niveau = 1, int $health = 100)
     {
@@ -113,7 +114,27 @@ class Archer
     }
 }
 
+/***********Extension du magicien********/
+class Arche extends Magicien
+{
 
+    /********La force du magicien********/
+    function robin($perso)
+    {
+        $perso->recevoirDegats($this->fleches);
+    }
+
+    /************Gagner des HP***********/
+    public function gagnerExperience()
+    {
+        parent::gagnerExperience();
+
+        if ($this->magie < 100)
+        {
+            $this->magie += 10;
+        }
+    }
+}
 
 
 
@@ -126,6 +147,7 @@ class Guerrier
     protected $niveau;
     protected $health;
     protected $death;
+    protected $toc;
 
     function __construct(string $nom, int $force, $niveau = 1, int $health = 100)
     {
@@ -226,6 +248,28 @@ class Guerrier
             {
                 $perso->sethealth($perso->gethealth() - 100);
             }
+    }
+}
+
+/***********Extension du magicien********/
+class Personnage extends Guerrier
+{
+
+    /********La force du magicien********/
+    function fracasser($perso)
+    {
+        $perso->recevoirDegats($this->toc);
+    }
+
+    /************Gagner des HP***********/
+    public function gagnerExperience()
+    {
+        parent::gagnerExperience();
+
+        if ($this->magie < 100)
+        {
+            $this->magie += 10;
+        }
     }
 }
 
@@ -346,7 +390,7 @@ class Magicien
 }
 
 /***********Extension du magicien********/
-class Personnage extends Magicien
+class Mage extends Magicien
 {
 
     /********La force du magicien********/
