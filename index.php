@@ -1,5 +1,7 @@
 <?php
-class Personnage 
+
+/************Archer************/
+class Archer 
 {
     protected $nom;
     protected $force;
@@ -77,7 +79,105 @@ class Personnage
     }
 
     /********Attaque********/
-    function attaquer(Personnage $perso)
+    function attaquer($perso)
+    {   
+    $this->tirer();
+    $perso->setHealth($perso->getHealth() - $this->force);
+    $perso->setDeath();
+    }
+
+    /********Level up********/
+    function levelup()
+    {
+        $this->niveau++;
+    }
+}
+
+function tirer()
+{
+    echo " Le personnage tire une flèche";
+}
+
+/************Guerrier************/
+class Guerrier 
+{
+    protected $nom;
+    protected $force;
+    protected $niveau;
+    protected $health;
+    protected $death;
+
+    function __construct(string $nom, int $force, $niveau = 1, int $health = 100)
+    {
+        $this->setnom($nom);
+        $this->setforce($force);
+        $this->setniveau($niveau);
+        $this->sethealth($health);
+        $this->setdeath();
+    }
+
+    function caracteristiques()  
+    {
+        $etat = ($this->death)? "mort" : "vivant";
+        echo $this->nom ." a une force de ". $this->force." et au niveau ".$this->niveau." est vivant ".$this->health." est mort ".$this->death."ponts/100, notre personnage est donc ".$etat."<br>";
+    }
+
+    /********Nom********/
+    function getNom() : string 
+    {
+        return $this->nom;
+    }
+
+    function setNom(string $nom) 
+    {
+        $this->nom = $nom;
+    }
+
+    /********Force********/
+    function getForce() : string 
+    {
+        return $this->force;
+    }
+    
+    function setForce($force) 
+    {
+        $this->force = $force;
+    }
+
+    /********Niveau********/
+    function getNiveau() : int 
+    {
+        return $this->level;
+    }
+
+    
+    function setNiveau(int $lvl)
+    {
+        $this->niveau = $lvl;
+    }
+
+    /********Vie********/
+    function getHealth() 
+    {
+        return $this->health;
+    }
+
+    function setHealth($health) 
+    {
+        $this->health = $health;
+    }
+    /********Vie ou mort********/
+    function setDeath() 
+    {
+        if($this->health < 1){
+            $this->death = true;
+           } else {
+                $this->death = false;
+           } 
+    }
+
+    /********Attaque********/
+    function attaquer($perso)
     {   
     $perso->setHealth($perso->getHealth() - $this->force);
     $perso->setDeath();
@@ -89,55 +189,103 @@ class Personnage
         $this->niveau++;
     }
 }
-/*******New personnages*****/
-Class Archer extends Personnage 
+
+
+
+/************Magicien***********/
+class Magicien 
 {
-    
-    function attaquer(Personnage $perso) 
+    protected $nom;
+    protected $force;
+    protected $niveau;
+    protected $health;
+    protected $death;
+
+    function __construct(string $nom, int $force, $niveau = 1, int $health = 100)
     {
-        $this->tirer();
-        parent::attaquer($perso);
+        $this->setnom($nom);
+        $this->setforce($force);
+        $this->setniveau($niveau);
+        $this->sethealth($health);
+        $this->setdeath();
     }
 
-    function tirer()
+    function caracteristiques()  
     {
-        echo $this->nom." de type " .Archer:: class."tire une flèche";
+        $etat = ($this->death)? "mort" : "vivant";
+        echo $this->nom ." a une force de ". $this->force." et au niveau ".$this->niveau." est vivant ".$this->health." est mort ".$this->death."ponts/100, notre personnage est donc ".$etat."<br>";
+    }
+
+    /********Nom********/
+    function getNom() : string 
+    {
+        return $this->nom;
+    }
+
+    function setNom(string $nom) 
+    {
+        $this->nom = $nom;
+    }
+
+    /********Force********/
+    function getForce() : string 
+    {
+        return $this->force;
     }
     
+    function setForce($force) 
+    {
+        $this->force = $force;
+    }
+
+    /********Niveau********/
+    function getNiveau() : int 
+    {
+        return $this->level;
+    }
+
+    
+    function setNiveau(int $lvl)
+    {
+        $this->niveau = $lvl;
+    }
+
+    /********Vie********/
+    function getHealth() 
+    {
+        return $this->health;
+    }
+
+    function setHealth($health) 
+    {
+        $this->health = $health;
+    }
+    /********Vie ou mort********/
+    function setDeath() 
+    {
+        if($this->health < 1){
+            $this->death = true;
+           } else {
+                $this->death = false;
+           } 
+    }
+
+    /********Attaque********/
+    function attaquer($perso)
+    {   
+    $perso->setHealth($perso->getHealth() - $this->force);
+    $perso->setDeath();
+    }
+
+    /********Level up********/
+    function levelup()
+    {
+        $this->niveau++;
+    }
 }
 
-Class Guerrier extends Personnage 
-{
-    
-    function attaquer(Personnage $perso) 
-    {
-        $this->frapper();
-        parent::attaquer($perso);
-    }
-
-    function frapper()
-    {
-        echo $this->nom." de type ".Guerrier:: class." Frappe avec une hache";
-    }
-}
-
-Class Magicien extends Personnage 
-{
-    
-    function attaquer(Personnage $perso) 
-    {
-        $this->tirer();
-        parent::attaquer($perso);
-    }
-
-    function lancerunsort()
-    {
-        echo $this->nom." de type ".Magicien:: class." Lance un sort";
-    }
-}
 
 /************************************/
-
 $perso1 = new Archer("Rose", 12);
 $perso2 = new guerrier("Golbu", 15, 2);
 $perso3 = new Magicien("Arthis", 13, 2);
