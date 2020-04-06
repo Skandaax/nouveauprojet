@@ -478,8 +478,3 @@ $perso1->caracteristiques();
 $perso1->levelup();
 echo "Aprés : ";
 $perso1->caracteristiques();
-
-
-
-
-
