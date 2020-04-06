@@ -114,9 +114,19 @@ class Archer
     }
 }
 
-/***********Extension du magicien********/
-class Arche extends Magicien
+/***********Extension de l'archer********/
+class Arche extends Archer
 {
+
+    function attaquer($perso)
+    {
+        $this->tirer();
+        if($perso instanceof Archer)
+        {
+            $perso->setdeath($perso->getdeath() - 10);
+        }
+        parent::attaquer($perso);
+    }
 
     /********La force du magicien********/
     function robin($perso)
@@ -129,14 +139,18 @@ class Arche extends Magicien
     {
         parent::gagnerExperience();
 
-        if ($this->magie < 100)
+        if ($this->fleche < 100)
         {
-            $this->magie += 10;
+            $this->fleche += 10;
         }
     }
+
+    function tirer()
+    {
+        echo $this->nom. "de type " .Archer::class. " tire une flèche";
+    }
+
 }
-
-
 
 
 /************Guerrier************/
@@ -251,14 +265,24 @@ class Guerrier
     }
 }
 
-/***********Extension du magicien********/
-class Personnage extends Guerrier
+/***********Extension du guerrier********/
+class guerre extends guerrier
 {
 
-    /********La force du magicien********/
-    function fracasser($perso)
+    function attaquer($perso)
     {
-        $perso->recevoirDegats($this->toc);
+        $this->frapper();
+        if($perso instanceof Archer)
+        {
+            $perso->setdeath($perso->getdeath() - 10);
+        }
+        parent::attaquer($perso);
+    }
+
+    /********La force du guerrier********/
+    function hache($perso)
+    {
+        $perso->recevoirDegats($this->fleches);
     }
 
     /************Gagner des HP***********/
@@ -266,11 +290,17 @@ class Personnage extends Guerrier
     {
         parent::gagnerExperience();
 
-        if ($this->magie < 100)
+        if ($this->coup < 100)
         {
-            $this->magie += 10;
+            $this->coup += 10;
         }
     }
+
+    function frapper()
+    {
+        echo $this->nom. "de type " .Archer::class. " tire une flèche";
+    }
+
 }
 
 
