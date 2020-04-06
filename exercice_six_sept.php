@@ -140,7 +140,7 @@ class Arche extends Archer
     /*************Interface*******************/
 
 
-    /********La force du magicien********/
+    /********La force de l'archer********/
     function robin($perso)
     {
         $perso->recevoirDegats($this->fleches);
@@ -308,11 +308,11 @@ class guerre extends guerrier
             $this->coup += 10;
         }
     }
-
+    
+    function lancerunsort() 
     {
-        echo $this->nom." de type ".Guerrier::class." Frappe.<br>";
+        echo $this->nom." de type ".Magicien::class." lance un sort.<br>";
     }
-
 }
 
 
